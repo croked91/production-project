@@ -6,6 +6,7 @@
 	"semi": true,
 	"arrowParens": "avoid",
 	"printWidth": 80,
+	"htmlWhitespaceSensitivity": "ignore",
 	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
 		"^@/components/(.*)$",

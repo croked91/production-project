@@ -8,7 +8,7 @@ interface NavbarProps {
 }
 
 export const NavBar: FC<NavbarProps> = ({ className }) => (
-	<div className={classNames(styles.navbar, {}, [className])}>
+	<div className={classNames(styles.navBar, {}, [className])}>
 		<div className={styles.links}>
 			<AppLink
 				theme={AppLinkTheme.SECONDARY}

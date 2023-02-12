@@ -1,20 +1,22 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "baseUrl": ".",
-    "paths": { "*": ["./src/*"] },
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  }
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"baseUrl": ".",
+		"paths": { "*": ["./src/*"] },
+		"noImplicitAny": true,
+		"module": "ESNext",
+		"target": "es5",
+		"jsx": "react-jsx",
+		"allowJs": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"typeRoots": ["app/types"]
+	},
+
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
+		}
+	}
 }

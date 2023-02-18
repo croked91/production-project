@@ -17,7 +17,6 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module'
 	},
-	overrides: [],
 	plugins: ['react', '@typescript-eslint', 'i18next'],
 	rules: {
 		'react/jsx-indent': [2, 'tab'],
@@ -44,10 +43,24 @@ module.exports = {
 		'arrow-body-style': ['error', 'as-needed'],
 		'jsx-quotes': ['error', 'prefer-single'],
 		'implicit-arrow-linebreak': ['error', 'beside'],
-		'i18next/no-literal-string': ['error', { markupOnly: true }],
+		'i18next/no-literal-string': [
+			'error',
+			{
+				markupOnly: true,
+				ignoreAttribute: ['data-testid']
+			}
+		],
 		'max-len': ['error', { code: 100, ignoreComments: true }]
 	},
 	globals: {
 		__IS_DEV__: true
-	}
+	},
+	overrides: [
+		{
+			files: ['**/src/**/*.test.{ts,tsx}'],
+			rules: {
+				'i18next/no-literal-string': 'off'
+			}
+		}
+	]
 };

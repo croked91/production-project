@@ -1,3 +1,4 @@
+import path from 'path';
 /*
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
@@ -18,9 +19,17 @@ export default {
 	testEnvironment: 'jsdom',
 	coveragePathIgnorePatterns: ['/node_modules/'],
 	moduleDirectories: ['node_modules'],
+	modulePaths: [
+		'src'
+	],
 	moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
 	rootDir: '../../',
-	testMatch: '<rootDir>src/**/*(* )@(spec|test).[tj]s?(x)'
+	testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
+	setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+	moduleNameMapper: {
+		'\\.s?css$': 'identity-obj-proxy',
+		'\\.svg': path.resolve(__dirname, 'jestEmtyComponent.tsx')
+	}
 
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,

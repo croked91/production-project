@@ -2,5 +2,6 @@
   "Язык": "Русский",
   "not-found-page": "Page not found",
   "unexpected-error": "There is unexpected error",
-  "reload-page": "Refresh the page"
+  "reload-page": "Refresh the page",
+  "toggle": "Toogle"
 }

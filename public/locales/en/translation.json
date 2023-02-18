@@ -1,4 +1,6 @@
 {
   "Язык": "Русский",
-  "not-found-page": "Page not found"
+  "not-found-page": "Page not found",
+  "unexpected-error": "There is unexpected error",
+  "reload-page": "Refresh the page"
 }

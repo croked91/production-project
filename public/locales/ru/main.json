@@ -2,5 +2,6 @@
   "main-page": "Главная страница",
   "unexpected-error": "Произошла непредвиденная ошибка",
   "reload-page": "Обновить страницу",
-  "toggle": "Toggle"
+  "toggle": "Toggle",
+  "Main": "Главная"
 }

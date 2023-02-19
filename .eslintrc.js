@@ -7,7 +7,9 @@ module.exports = {
 	extends: [
 		'plugin:react/recommended',
 		'plugin:i18next/recommended',
-		'airbnb'
+		'airbnb',
+		'plugin:storybook/recommended',
+		'plugin:storybook/recommended'
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
@@ -22,10 +24,9 @@ module.exports = {
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab'],
 		indent: [2, 'tab'],
-		'react/jsx-filename-extension': [
-			2,
-			{ extensions: ['.js', '.jsx', '.tsx'] }
-		],
+		'react/jsx-filename-extension': [2, {
+			extensions: ['.js', '.jsx', '.tsx']
+		}],
 		'import/no-unresolved': 'off',
 		'import/prefer-default-export': 'off',
 		'no-unused-vars': 'warn',
@@ -43,24 +44,22 @@ module.exports = {
 		'arrow-body-style': ['error', 'as-needed'],
 		'jsx-quotes': ['error', 'prefer-single'],
 		'implicit-arrow-linebreak': ['error', 'beside'],
-		'i18next/no-literal-string': [
-			'error',
-			{
-				markupOnly: true,
-				ignoreAttribute: ['data-testid']
-			}
-		],
-		'max-len': ['error', { code: 100, ignoreComments: true }]
+		'i18next/no-literal-string': ['error', {
+			markupOnly: true,
+			ignoreAttribute: ['data-testid', 'to']
+		}],
+		'max-len': ['error', {
+			code: 100,
+			ignoreComments: true
+		}]
 	},
 	globals: {
 		__IS_DEV__: true
 	},
-	overrides: [
-		{
-			files: ['**/src/**/*.test.{ts,tsx}'],
-			rules: {
-				'i18next/no-literal-string': 'off'
-			}
+	overrides: [{
+		files: ['**/src/**/*.test.{ts,tsx}'],
+		rules: {
+			'i18next/no-literal-string': 'off'
 		}
-	]
+	}]
 };

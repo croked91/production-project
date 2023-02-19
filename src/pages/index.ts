@@ -1,2 +1,2 @@
-export { AboutLazy as AboutPage } from './About/ui/AboutAsync';
-export { MainLazy as MainPage } from './Main/ui/MainAsync';
+export { AboutLazy as AboutPage } from './About';
+export { MainLazy as MainPage } from './Main';

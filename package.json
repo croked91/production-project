@@ -89,7 +89,9 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "unit": "npx jest --config ./config/jest/jest.config.ts",
     "storybook": "start-storybook --no-manager-cache -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook"
+    "build-storybook": "build-storybook -c ./config/storybook",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve"
   },
   "author": "Egor Tikhomirov <charliewax@yandex.ru>",
   "license": "ISC",

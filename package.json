@@ -91,7 +91,8 @@
     "storybook": "start-storybook --no-manager-cache -p 6006 -c ./config/storybook",
     "build-storybook": "build-storybook -c ./config/storybook",
     "test:ui": "npx loki test",
-    "test:ui:ok": "npx loki approve"
+    "test:ui:ok": "npx loki approve",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static"
   },
   "author": "Egor Tikhomirov <charliewax@yandex.ru>",
   "license": "ISC",

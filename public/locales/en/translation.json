@@ -1,5 +1,6 @@
 {
-  "Язык": "Русский",
+  "Short_lang": "Ру",
+  "Full_lang": "Русский",
   "not-found-page": "Page not found",
   "unexpected-error": "There is unexpected error",
   "reload-page": "Refresh the page",

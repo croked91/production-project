@@ -19,7 +19,7 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module'
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next'],
+	plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
 	rules: {
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab'],
@@ -43,6 +43,8 @@ module.exports = {
 		'arrow-parens': ['error', 'as-needed'],
 		'arrow-body-style': ['error', 'as-needed'],
 		'jsx-quotes': ['error', 'prefer-single'],
+		'react-hooks/rules-of-hooks': 'error',
+		'react-hooks/exhaustive-deps': 'error',
 		'implicit-arrow-linebreak': ['error', 'beside'],
 		'i18next/no-literal-string': ['error', {
 			markupOnly: true,
@@ -51,15 +53,18 @@ module.exports = {
 		'max-len': ['error', {
 			code: 100,
 			ignoreComments: true
-		}]
+		}],
+		'jsx-a11y/no-static-element-interactions': 'off',
+		'jsx-a11y/click-events-have-key-events': 'off'
 	},
 	globals: {
 		__IS_DEV__: true
 	},
 	overrides: [{
-		files: ['**/src/**/*.test.{ts,tsx}'],
+		files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
 		rules: {
-			'i18next/no-literal-string': 'off'
+			'i18next/no-literal-string': 'off',
+			'max-len': 'off'
 		}
 	}]
 };

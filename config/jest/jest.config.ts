@@ -29,6 +29,9 @@ export default {
 	moduleNameMapper: {
 		'\\.s?css$': 'identity-obj-proxy',
 		'\\.svg': path.resolve(__dirname, 'jestEmtyComponent.tsx')
+	},
+	globals: {
+		__IS_DEV__: true
 	}
 
 	// Indicates whether the coverage information should be collected while executing the test
@@ -74,7 +77,6 @@ export default {
 	// globalTeardown: undefined,
 
 	// A set of global variables that need to be available in all test environments
-	// globals: {},
 
 	// The maximum amount of workers used to run your tests.
 	// Can be specified as % or a number. E.g. maxWorkers: 10% will

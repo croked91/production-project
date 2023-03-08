@@ -9,21 +9,21 @@ import i18n from 'shared/config/i18n/i18nForTest';
 
 export interface IComponentRenderOptions {
   route?: string
-	initialState?: DeepPartial<StateSchema>
+  initialState?: DeepPartial<StateSchema>
 }
 
 export const componentRender = (
-	component: ReactNode,
-	options: IComponentRenderOptions = {}
+  component: ReactNode,
+  options: IComponentRenderOptions = {}
 ) => {
-	const { route = '/', initialState } = options;
-	return render(
-		<StoreProvider initialState={initialState}>
-			<MemoryRouter initialEntries={[route]}>
-				<I18nextProvider i18n={i18n}>
-					{component}
-				</I18nextProvider>
-			</MemoryRouter>
-		</StoreProvider>
-	);
+  const { route = '/', initialState } = options;
+  return render(
+    <StoreProvider initialState={initialState}>
+      <MemoryRouter initialEntries={[route]}>
+        <I18nextProvider i18n={i18n}>
+          {component}
+        </I18nextProvider>
+      </MemoryRouter>
+    </StoreProvider>
+  );
 };

@@ -6,18 +6,18 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 interface ThemeSwitcherProps {
-	className?: string;
+  className?: string;
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
-	const { theme, toggleTheme } = useTheme();
-	return (
-		<Button
-			theme={ButtonTheme.CLEAR}
-			className={classNames('', {}, [className])}
-			onClick={toggleTheme}
-		>
-			{theme === Theme.DARK ? <LightIcon /> : <DarkIcon />}
-		</Button>
-	);
+  const { theme, toggleTheme } = useTheme();
+  return (
+    <Button
+      theme={ButtonTheme.CLEAR}
+      className={classNames('', {}, [className])}
+      onClick={toggleTheme}
+    >
+      {theme === Theme.DARK ? <LightIcon /> : <DarkIcon />}
+    </Button>
+  );
 };

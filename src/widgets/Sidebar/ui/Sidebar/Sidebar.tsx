@@ -11,60 +11,60 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import styles from './styles.module.scss';
 
 interface SidebarProps {
-	className?: string;
+  className?: string;
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-	const { t } = useTranslation();
-	const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
-	const onToggle = () => {
-		setIsCollapsed(prev => !prev);
-	};
+  const { t } = useTranslation();
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  const onToggle = () => {
+    setIsCollapsed(prev => !prev);
+  };
 
-	return (
-		<div
-			data-testid='sidebar'
-			className={classNames(
-				styles.sidebar,
-				{ [styles.collapsed]: isCollapsed },
-				[className]
-			)}
-		>
-			<Button
-				data-testid='sidebar-toogle'
-				onClick={onToggle}
-				className={styles.collapseBtn}
-				theme={ButtonTheme.BACKGROUND_INVERTED}
-				square
-				size={ButtonSize.XL}
-			>
-				{isCollapsed ? '>' : '<'}
-			</Button>
-			<div className={styles.items}>
+  return (
+    <div
+      data-testid='sidebar'
+      className={classNames(
+        styles.sidebar,
+        { [styles.collapsed]: isCollapsed },
+        [className]
+      )}
+    >
+      <Button
+        data-testid='sidebar-toogle'
+        onClick={onToggle}
+        className={styles.collapseBtn}
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+        square
+        size={ButtonSize.XL}
+      >
+        {isCollapsed ? '>' : '<'}
+      </Button>
+      <div className={styles.items}>
 
-				<AppLink
-					theme={AppLinkTheme.SECONDARY}
-					to={RoutePath.main}
-					className={styles.item}
-				>
-					<MainIcon className={styles.icon} />
-					<span className={styles.link}>{t('Main')}</span>
-				</AppLink>
+        <AppLink
+          theme={AppLinkTheme.SECONDARY}
+          to={RoutePath.main}
+          className={styles.item}
+        >
+          <MainIcon className={styles.icon} />
+          <span className={styles.link}>{t('Main')}</span>
+        </AppLink>
 
-				<AppLink
-					theme={AppLinkTheme.SECONDARY}
-					to={RoutePath.about}
-					className={styles.item}
-				>
-					<AboutIcon className={styles.icon} />
-					<span className={styles.link}>{t('About')}</span>
-				</AppLink>
+        <AppLink
+          theme={AppLinkTheme.SECONDARY}
+          to={RoutePath.about}
+          className={styles.item}
+        >
+          <AboutIcon className={styles.icon} />
+          <span className={styles.link}>{t('About')}</span>
+        </AppLink>
 
-			</div>
-			<div className={styles.switchers}>
-				<ThemeSwitcher />
-				<LangSwitcher short={isCollapsed} />
-			</div>
-		</div>
-	);
+      </div>
+      <div className={styles.switchers}>
+        <ThemeSwitcher />
+        <LangSwitcher short={isCollapsed} />
+      </div>
+    </div>
+  );
 };

@@ -7,6 +7,6 @@ interface PortalProps {
 }
 
 export const Portal:FC<PortalProps> = ({
-	children,
-	element = document.body
+  children,
+  element = document.body
 }) => createPortal(children, element);

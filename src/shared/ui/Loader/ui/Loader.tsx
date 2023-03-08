@@ -7,8 +7,8 @@ interface LoaderProps {
 }
 
 export const Loader:FC<LoaderProps> = ({ className }) => (
-	<div className={classNames(styles.ldsRipple, {}, [className])}>
-		<div />
-		<div />
-	</div>
+  <div className={classNames(styles.ldsRipple, {}, [className])}>
+    <div />
+    <div />
+  </div>
 );

@@ -1,4 +1,6 @@
 {
   "Main": "Main",
-  "LogIn": "LogIn"
+  "LogIn": "LogIn",
+  "inputLogin": "Enter login",
+  "inputPassword": "enter password"
 }

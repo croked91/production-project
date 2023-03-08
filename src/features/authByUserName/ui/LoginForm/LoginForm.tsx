@@ -13,9 +13,9 @@ export const LoginForm:FC<LoginFormProps> = ({ className }) => {
   const { t } = useTranslation();
   return (
     <div className={classNames(styles.loginForm, {}, [className])}>
-      <Input autofocus placeholder={t('inputLogin')} value='sadsad' />
-      <Input placeholder={t('inputPassword')} value='asd' />
-      <Button theme={ButtonTheme.CLEAR} className={styles.button}>{t('LogIn')}</Button>
+      <Input autofocus placeholder={t('inputLogin')} value='' />
+      <Input placeholder={t('inputPassword')} value='' />
+      <Button theme={ButtonTheme.OUTLINE} className={styles.button}>{t('LogIn')}</Button>
     </div>
   );
 };

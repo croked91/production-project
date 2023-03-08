@@ -1,3 +1,4 @@
+import { useTheme } from 'app/providers/ThemeProvider';
 import {
 	FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState
 } from 'react';
@@ -21,6 +22,7 @@ export const Modal:FC<ModalProps> = ({
 }) => {
 	const [isClosing, setIsClosing] = useState<boolean>(false);
 	const timerRef = useRef<ReturnType<typeof setTimeout>>();
+	const { theme } = useTheme();
 
 	const mods:Record<string, boolean> = {
 		[styles.opened]: isOpen,
@@ -57,7 +59,7 @@ export const Modal:FC<ModalProps> = ({
 
 	return (
 		<Portal>
-			<div className={classNames(styles.modal, mods, [className])}>
+			<div className={classNames(styles.modal, mods, [className, theme])}>
 				<div className={styles.overlay} onClick={onCloseHandler}>
 					<div className={styles.content} onClick={onContentClick}>
 						{children}

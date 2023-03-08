@@ -12,9 +12,11 @@ interface NavbarProps {
 export const Navbar: FC<NavbarProps> = ({ className }) => {
 	const { t } = useTranslation();
 	const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
+
 	const onToggleModal = useCallback(() => {
 		setIsAuthModal(prev => !prev);
 	}, []);
+
 	return (
 		<div className={classNames(styles.navBar, {}, [className])}>
 			<Button
@@ -22,7 +24,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 				className={styles.links}
 				onClick={onToggleModal}
 			>
-				{t('Войти')}
+				{t('LogIn')}
 			</Button>
 			<Modal
 				isOpen={isAuthModal}

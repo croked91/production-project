@@ -28,6 +28,7 @@ module.exports = {
       extensions: ['.js', '.jsx', '.tsx']
     }],
     'import/no-unresolved': 'off',
+    'no-param-reassign': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',
     'react/require-default-props': 'off',
@@ -50,7 +51,7 @@ module.exports = {
       ignoreAttribute: ['data-testid', 'to']
     }],
     'max-len': ['error', {
-      code: 100,
+      code: 120,
       ignoreComments: true
     }],
     'jsx-a11y/no-static-element-interactions': 'off',

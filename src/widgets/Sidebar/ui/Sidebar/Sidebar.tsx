@@ -48,7 +48,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={styles.item}
         >
           <MainIcon className={styles.icon} />
-          <span className={styles.link}>{t('Main')}</span>
+          <span className={styles.link}>{t('Main-page')}</span>
         </AppLink>
 
         <AppLink
@@ -57,7 +57,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={styles.item}
         >
           <AboutIcon className={styles.icon} />
-          <span className={styles.link}>{t('About')}</span>
+          <span className={styles.link}>{t('about')}</span>
         </AppLink>
 
       </div>

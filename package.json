@@ -82,6 +82,7 @@
   "main": "index.tsx",
   "scripts": {
     "start": "webpack serve --env mode=development port=3000",
+    "strat:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "npx eslint \"**/*.{ts,tsx}\"",

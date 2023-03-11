@@ -15,7 +15,7 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('sidebar');
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const onToggle = () => {
     setIsCollapsed(prev => !prev);
@@ -48,7 +48,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={styles.item}
         >
           <MainIcon className={styles.icon} />
-          <span className={styles.link}>{t('Main-page')}</span>
+          <span className={styles.link}>{t('Main page')}</span>
         </AppLink>
 
         <AppLink
@@ -57,7 +57,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={styles.item}
         >
           <AboutIcon className={styles.icon} />
-          <span className={styles.link}>{t('about')}</span>
+          <span className={styles.link}>{t('About website')}</span>
         </AppLink>
 
       </div>

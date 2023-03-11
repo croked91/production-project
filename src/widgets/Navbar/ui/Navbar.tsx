@@ -12,7 +12,7 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('navbar');
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
           className={styles.links}
           onClick={onLogout}
         >
-          Выйти
+          {t('Log out')}
         </Button>
       </div>
     );
@@ -50,12 +50,14 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         className={styles.links}
         onClick={onShowModal}
       >
-        {t('LogIn')}
+        {t('Log in')}
       </Button>
-      <LoginModal
-        isOpen={isAuthModal}
-        onClose={onCloseModal}
-      />
+      {isAuthModal && (
+        <LoginModal
+          isOpen={isAuthModal}
+          onClose={onCloseModal}
+        />
+      )}
     </div>
   );
 };

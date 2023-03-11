@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Modal } from 'shared/ui/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {
   className?: string;
@@ -16,6 +16,6 @@ export const LoginModal:FC<LoginModalProps> = ({ className, isOpen, onClose }) =
     className={classNames('', {}, [className])}
     lazy
   >
-    <LoginForm />
+    <LoginFormAsync />
   </Modal>
 );

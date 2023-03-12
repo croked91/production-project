@@ -23,7 +23,7 @@ export const loginByUsermname = createAsyncThunk<IUser, ILoginByUsernameProps, {
       thunkApi.dispatch(setAuthData(data));
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(JSON.stringify(error));
+      return thunkApi.rejectWithValue('error');
     }
   }
 );

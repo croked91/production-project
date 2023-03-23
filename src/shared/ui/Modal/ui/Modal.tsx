@@ -1,8 +1,8 @@
 import { useTheme } from 'app/providers/ThemeProvider';
 import {
-  FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState
+  FC, MouseEvent, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState
 } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames, Mods } from 'shared/lib/helpers/classNames';
 import { Portal } from 'shared/ui/Portal';
 
 import styles from './styles.module.scss';
@@ -22,10 +22,10 @@ export const Modal:FC<ModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const { theme } = useTheme();
 
-  const mods:Record<string, boolean> = {
+  const mods:Mods = {
     [styles.opened]: isOpen,
     [styles.isClosing]: isClosing
   };

@@ -37,6 +37,7 @@ module.exports = {
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
     'import/extensions': 'off',
+    'no-undef': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'comma-dangle': ['error', 'never'],
@@ -58,7 +59,8 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off'
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: true
   },
   overrides: [{
     files: ['**/src/**/*.{test,stories}.{ts,tsx}'],

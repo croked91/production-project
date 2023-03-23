@@ -11,7 +11,7 @@ type HTMLInputProps = Omit<
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value: string;
+  value: string | undefined;
   onChange?: (value: string) => void;
   placeholder?: string;
   autofocus?: boolean;
@@ -30,7 +30,7 @@ export const Input = memo(
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [carettePosition, setCarettePosition] = useState<number>(0);
 
-    const ref = useRef<HTMLInputElement>();
+    const ref = useRef<HTMLInputElement>(null);
     useEffect(() => {
       if (autofocus) {
         setIsFocused(true);
@@ -40,7 +40,7 @@ export const Input = memo(
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
       onChange?.(e.currentTarget.value);
-      setCarettePosition(value.length);
+      setCarettePosition(value?.length || 0);
     };
 
     const onFocusHandler = () => {

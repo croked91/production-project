@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { IThunkCofig } from 'app/providers/StoreProvider';
 import { IUser, setAuthData } from 'entities/User';
-
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
 interface ILoginByUsernameProps {
@@ -9,21 +8,23 @@ interface ILoginByUsernameProps {
   password: string
 }
 
-export const loginByUsermname = createAsyncThunk<IUser, ILoginByUsernameProps, {rejectValue: string}>(
+// eslint-disable-next-line max-len
+export const loginByUsermname = createAsyncThunk<IUser, ILoginByUsernameProps, IThunkCofig<string>>(
   'login/loginByUsermname',
-  async ({ username, password }, thunkApi) => {
+  async ({ username, password }, { extra, dispatch, rejectWithValue }) => {
     try {
-      const { data } = await axios.post<IUser>('http://localhost:8000/login', { username, password });
+      const { data } = await extra.api.post<IUser>('/login', { username, password });
 
       if (!data) {
         throw new Error();
       }
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
-      thunkApi.dispatch(setAuthData(data));
+      dispatch(setAuthData(data));
+      if (extra.navigate) extra.navigate('/about');
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue('error');
+      return rejectWithValue('error');
     }
   }
 );

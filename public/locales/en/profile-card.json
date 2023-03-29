@@ -2,5 +2,9 @@
   "User Profile": "User profile",
   "edit button": "Edit",
   "Your Name": "Your name",
-  "Your Lastname": "Your last name"
+  "Your Lastname": "Your last name",
+  "loading error": "An error occurred while loading",
+  "try to reload": "Try refreshing the page",
+  "vash-vozrast": "Your age",
+  "your city": "Your city"
 }

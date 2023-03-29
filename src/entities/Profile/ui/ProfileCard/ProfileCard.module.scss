@@ -6,16 +6,16 @@
   gap: 30px;
 }
 
-.header {
-  display: flex;
-}
-
-.editBtn {
-  margin-left: auto;
-}
-
 .data {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
 }

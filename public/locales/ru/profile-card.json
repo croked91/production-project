@@ -2,5 +2,10 @@
   "User Profile": "Профиль пользователя",
   "edit button": "Редактировать",
   "Your Name": "Ваше имя",
-  "Your Lastname": "Ваша фамилия"
+  "Your Lastname": "Ваша фамилия",
+  "loading error": "Произошла ошибка при загрузке",
+  "try to reload": "Попробуйте обновить страницу",
+  "edit-button": "",
+  "vash-vozrast": "Ваш возраст",
+  "your city": "Ваш город"
 }

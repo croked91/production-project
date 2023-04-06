@@ -1,3 +1,4 @@
+export { updateProfileData } from './services/updateProfileData/updateProfileData';
 export { getProfileData } from './model/selectors/getProfileData/getProfileData';
 export { getProfileError } from './model/selectors/getProfileError/getProfileError';
 export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';

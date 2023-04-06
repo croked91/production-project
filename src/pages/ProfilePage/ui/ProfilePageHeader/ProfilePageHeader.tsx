@@ -1,4 +1,4 @@
-import { getProfileReadonly } from 'entities/Profile';
+import { getProfileReadonly, updateProfileData } from 'entities/Profile';
 import { cancelEdit, setReadonly } from 'entities/Profile/model/slice/profileSlice';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -13,7 +13,7 @@ interface ProfilePageHeaderProps {
   className?: string;
 }
 
-export const ProfilePageHeader:FC<ProfilePageHeaderProps> = ({ className }) => {
+export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   const { t } = useTranslation('profile-page');
 
   const readonly = useSelector(getProfileReadonly);
@@ -30,7 +30,7 @@ export const ProfilePageHeader:FC<ProfilePageHeaderProps> = ({ className }) => {
   );
 
   const onSave = useCallback(
-    () => { dispatch(cancelEdit()); },
+    () => { dispatch(updateProfileData()); },
     [dispatch]
   );
 

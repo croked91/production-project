@@ -5,6 +5,7 @@ import { AxiosInstance } from 'axios';
 import { IProfileSchema } from 'entities/Profile/model/types/profile';
 import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/authByUsername';
+
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema {
@@ -25,7 +26,7 @@ export interface IReducerManager {
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
-  reducerManager:IReducerManager
+  reducerManager: IReducerManager
 }
 
 export interface IThunkExtraArg {
@@ -33,7 +34,8 @@ export interface IThunkExtraArg {
   navigate?: (to: To, options?: NavigateOptions) => void
 }
 
-export interface IThunkCofig<T>{
+export interface IThunkCofig<T> {
   rejectValue: T,
-  extra: IThunkExtraArg
+  extra: IThunkExtraArg,
+  state: StateSchema
 }

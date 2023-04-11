@@ -1,3 +1,5 @@
+import { CountryT } from 'entities/Country';
+import { CurrencyT } from 'entities/Currency';
 import {
   fetchProfileData,
   getProfileError,
@@ -52,6 +54,22 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
     dispatch(updateProfile({ city: value || '' }));
   }, [dispatch]);
 
+  const onChangeUsername = useCallback((value?: string) => {
+    dispatch(updateProfile({ username: value || '' }));
+  }, [dispatch]);
+
+  const onChangeAvatar = useCallback((value?: string) => {
+    dispatch(updateProfile({ avatar: value || '' }));
+  }, [dispatch]);
+
+  const onChangeCurrency = useCallback((currency?: CurrencyT) => {
+    dispatch(updateProfile({ currency }));
+  }, [dispatch]);
+
+  const onChangeCountry = useCallback((country?: CountryT) => {
+    dispatch(updateProfile({ country }));
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
@@ -68,6 +86,10 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
           onChangeLastname={onChangeLastname}
           onChangeCity={onChangeCity}
           onChangeAge={onChangeAge}
+          onChangeAvatar={onChangeAvatar}
+          onChangeUsername={onChangeUsername}
+          onChangeCountry={onChangeCountry}
+          onChangeCurrency={onChangeCurrency}
           readOnly={readonly}
         />
       </div>

@@ -7,10 +7,11 @@ import { RoutePath } from 'shared/config/routeConfig';
 export interface SideBarItemType {
   path: string;
   i18nKey: string;
-  Icon: VFC<SVGProps<SVGSVGElement>>
+  Icon: VFC<SVGProps<SVGSVGElement>>;
+  authOnly?: boolean;
 }
 
-export const SidebarItemsList:SideBarItemType[] = [
+export const SidebarItemsList: SideBarItemType[] = [
   {
     path: RoutePath.main,
     Icon: MainIcon,
@@ -24,6 +25,7 @@ export const SidebarItemsList:SideBarItemType[] = [
   {
     path: RoutePath.profile,
     Icon: ProfileIcon,
-    i18nKey: 'Profile'
+    i18nKey: 'Profile',
+    authOnly: true
   }
 ];

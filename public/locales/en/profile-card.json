@@ -6,5 +6,8 @@
   "loading error": "An error occurred while loading",
   "try to reload": "Try refreshing the page",
   "vash-vozrast": "Your age",
-  "your city": "Your city"
+  "your city": "Your city",
+  "your username": "Your username",
+  "your avatar": "Your avatar",
+  "choose currency": "Choose currency"
 }

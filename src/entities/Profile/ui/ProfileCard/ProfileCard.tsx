@@ -97,7 +97,7 @@ export const ProfileCard:FC<ProfileCardProps> = ({
         <Input
           value={data?.age}
           onChange={onChangeAge}
-          placeholder={t('vash-vozrast')}
+          placeholder={t('your age')}
           readOnly={readOnly}
         />
         <Input

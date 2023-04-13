@@ -5,10 +5,9 @@
   "Your Lastname": "Ваша фамилия",
   "loading error": "Произошла ошибка при загрузке",
   "try to reload": "Попробуйте обновить страницу",
-  "edit-button": "",
-  "vash-vozrast": "Ваш возраст",
   "your city": "Ваш город",
   "your username": "Ваш username",
   "your avatar": "Ваш аватар",
-  "choose currency": "Выберите валюту"
+  "choose currency": "Выберите валюту",
+  "your age": "Ваш возраст"
 }

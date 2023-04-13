@@ -4,5 +4,14 @@
   "edit-button": "edit button",
   "edit-button-0": "Отредактировать",
   "cancel": "Отменить",
-  "save": "Сохранить"
+  "save": "Сохранить",
+  "oshibka-polucheniya-dannykh-s-servera": "Ошибка получения данных с сервера",
+  "net-dannykh": "Нет данных",
+  "nepravilny-imya-ili-familiya": "Неправильны имя или фамилия",
+  "nepravilno-ukazan-username": "Неправильно указан username",
+  "nepravilno-ukazana-valyuta": "Неправильно указана валюта",
+  "nepravilno-ukazana-strana": "Неправильно указана страна",
+  "nepravilno-ukazan-vozrast": "Неправильно указан возраст",
+  "nepravilno-ukazan-gorod": "Неправильно указан город",
+  "nepravilno-ukazan-avatar": "Неправильно указан аватар"
 }

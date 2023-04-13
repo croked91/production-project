@@ -6,8 +6,10 @@ import {
   getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
+  getProfileValidateErrors,
   ProfileCard,
-  profileReducer
+  profileReducer,
+  validateProfileError
 } from 'entities/Profile';
 import { updateProfile } from 'entities/Profile/model/slice/profileSlice';
 import { memo, useCallback, useEffect } from 'react';
@@ -16,6 +18,7 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from 'shared/ui/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -27,13 +30,26 @@ const reducersList: ReducersList = {
 };
 
 const ProfilePage = memo(({ className }:ProfilePageProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile-page');
   const dispatch = useAppDispatch();
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const valdateErrorsTranslations = {
+    [validateProfileError.INCORRECT_AGE]: t('nepravilno-ukazan-vozrast'),
+    [validateProfileError.INCORRECT_AVATAR]: t('nepravilno-ukazan-avatar'),
+    [validateProfileError.INCORRECT_CITY]: t('nepravilno-ukazan-gorod'),
+    [validateProfileError.INCORRECT_COUNTRY]: t('nepravilno-ukazana-strana'),
+    [validateProfileError.INCORRECT_CURRENCY]: t('nepravilno-ukazana-valyuta'),
+    [validateProfileError.INCORRECT_USERNAME]: t('nepravilno-ukazan-username'),
+    [validateProfileError.INCORRECT_USER_DATA]: t('nepravilny-imya-ili-familiya'),
+    [validateProfileError.NO_DATA]: t('net-dannykh'),
+    [validateProfileError.SERVER_ERROR]: t('oshibka-polucheniya-dannykh-s-servera')
+  };
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(updateProfile({ first: value || '' }));
@@ -71,13 +87,25 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   return (
     <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
       <div className={classNames('', {}, [className])}>
         <ProfilePageHeader />
+        {validateErrors?.length
+          && validateErrors.map(
+            error => (
+              <Text
+                key={error}
+                theme={TextTheme.ERROR}
+                text={valdateErrorsTranslations[error]}
+              />
+            )
+          )}
         <ProfileCard
           data={formData}
           isLoading={isLoading}

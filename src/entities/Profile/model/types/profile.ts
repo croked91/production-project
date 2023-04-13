@@ -1,6 +1,20 @@
 import { CountryT } from 'entities/Country';
 import { CurrencyT } from 'entities/Currency';
 
+export const validateProfileError = {
+  INCORRECT_USER_DATA: 'INCORRECT_USER_DATA',
+  INCORRECT_AGE: 'INCORRECT_AGE',
+  INCORRECT_CITY: 'INCORRECT_CITY',
+  INCORRECT_CURRENCY: 'INCORRECT_CURRENCY',
+  INCORRECT_COUNTRY: 'INCORRECT_COUNTRY',
+  INCORRECT_AVATAR: 'INCORRECT_AVATAR',
+  INCORRECT_USERNAME: 'INCORRECT_USERNAME',
+  NO_DATA: 'NO_DATA',
+  SERVER_ERROR: 'SERVER_ERROR'
+} as const;
+
+export type ValidateProfileErrorT = keyof typeof validateProfileError
+
 export interface IProfile {
   'first'?: string,
   'lastname'?: string,
@@ -17,5 +31,6 @@ export interface IProfileSchema {
   form?: IProfile,
   isLoading?: boolean,
   error?: string,
+  validateError?: ValidateProfileErrorT[],
   readonly: boolean
 }

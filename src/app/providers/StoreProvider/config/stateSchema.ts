@@ -2,6 +2,7 @@ import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { IArticleDetailsSchema } from 'entities/Article';
 import { IProfileSchema } from 'entities/Profile/model/types/profile';
 import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/authByUsername';
@@ -9,11 +10,12 @@ import { ILoginSchema } from 'features/authByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema {
-  user: IUserSchema
+  user: IUserSchema,
 
   // async
   loginForm?: ILoginSchema
   profile?: IProfileSchema
+  articleDetails?: IArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

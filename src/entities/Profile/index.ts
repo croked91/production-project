@@ -4,10 +4,11 @@ export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm'
 export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsloading';
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
+export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 export { profileReducer } from './model/slice/profileSlice';
 export {
   IProfile, IProfileSchema, ValidateProfileErrorT, validateProfileError
 } from './model/types/profile';
-export { fetchProfileData } from './services/fetchProfileData/fetchProfileData';
-export { updateProfileData } from './services/updateProfileData/updateProfileData';
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
+

@@ -1,6 +1,6 @@
 import { Country } from 'entities/Country/model/types/country';
 import { Currency } from 'entities/Currency';
-import { updateProfileData } from '../../services/updateProfileData/updateProfileData';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { IProfileSchema, validateProfileError } from '../types/profile';
 import {
   cancelEdit, profileReducer, setReadonly, updateProfile

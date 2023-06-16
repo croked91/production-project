@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkCofig } from 'app/providers/StoreProvider';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
-import { IProfile, ValidateProfileErrorT, validateProfileError } from '../../model/types/profile';
+import { IProfile, ValidateProfileErrorT, validateProfileError } from '../../types/profile';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 export const updateProfileData = createAsyncThunk<IProfile, void, IThunkCofig<ValidateProfileErrorT[]>>(

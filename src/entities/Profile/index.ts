@@ -11,4 +11,3 @@ export {
   IProfile, IProfileSchema, ValidateProfileErrorT, validateProfileError
 } from './model/types/profile';
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
-

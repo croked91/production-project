@@ -6,7 +6,7 @@ export const fetchArticleById = createAsyncThunk<IArticle, string, IThunkCofig<s
   'profile/fetchArticleById',
   async (articleId, { extra, rejectWithValue }) => {
     try {
-      const { data } = await extra.api.get<IArticle>(`/artiles/${articleId}`);
+      const { data } = await extra.api.get<IArticle>(`/articles/${articleId}`);
 
       if (!data) {
         throw new Error();

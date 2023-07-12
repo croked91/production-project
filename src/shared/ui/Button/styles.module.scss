@@ -3,6 +3,11 @@
   transition: color 1s;
   padding: 6px 14px;
 
+  &:hover {
+    box-shadow: 0 0 10 5px var(--primary-color);
+    opacity: 0.8;
+  }
+
   &:disabled {
     opacity: 0.5;
     cursor: default;

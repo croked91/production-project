@@ -2,11 +2,6 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import styles from './Text.module.scss';
 
-// const TextTheme = new Map([['PRIMARY', 'primary'], ['ERROR', 'error']]);
-
-// const TextThemeObj = Object.freeze(TextTheme);
-// type x = keyof typeof TextThemeObj
-
 export const TextTheme = {
   PRIMARY: 'primary',
   ERROR: 'error'
@@ -22,18 +17,31 @@ export const TextAlign = {
 
 type TextAlignT = typeof TextAlign[keyof typeof TextAlign]
 
+export const TextSize = {
+  M: 'size_m',
+  L: 'size_l'
+} as const;
+
+type TextSizeT = typeof TextSize[keyof typeof TextSize]
+
 interface TextProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextThemeT
   align?: TextAlignT
+  size?: TextSizeT
 }
 
 export const Text = memo(({
-  className, title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT
+  className,
+  title,
+  text,
+  theme = TextTheme.PRIMARY,
+  align = TextAlign.LEFT,
+  size = TextSize.M
 }: TextProps) => (
-  <div className={classNames(styles.text, {}, [className, styles[theme], styles[align]])}>
+  <div className={classNames(styles.textComponent, {}, [className, styles[theme], styles[align], styles[size]])}>
     {title && <p className={styles.title}>{title}</p>}
     {text && <p className={styles.text}>{text}</p>}
   </div>

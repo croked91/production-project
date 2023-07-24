@@ -5,7 +5,9 @@ import { AxiosInstance } from 'axios';
 import { IArticleDetailsSchema } from 'entities/Article';
 import { IProfileSchema } from 'entities/Profile/model/types/profile';
 import { IUserSchema } from 'entities/User';
+import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ILoginSchema } from 'features/authByUsername';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 
 import { NavigateOptions, To } from 'react-router-dom';
 
@@ -16,6 +18,8 @@ export interface StateSchema {
   loginForm?: ILoginSchema
   profile?: IProfileSchema
   articleDetails?: IArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema

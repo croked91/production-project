@@ -12,12 +12,14 @@ import {
   validateProfileError
 } from 'entities/Profile';
 import { updateProfile } from 'entities/Profile/model/slice/profileSlice';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -38,6 +40,7 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const { id } = useParams<{ id: string }>();
 
   const valdateErrorsTranslations = {
     [validateProfileError.INCORRECT_AGE]: t('nepravilno-ukazan-vozrast'),
@@ -50,6 +53,12 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
     [validateProfileError.NO_DATA]: t('net-dannykh'),
     [validateProfileError.SERVER_ERROR]: t('oshibka-polucheniya-dannykh-s-servera')
   };
+
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  });
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(updateProfile({ first: value || '' }));
@@ -84,12 +93,6 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
 
   const onChangeCountry = useCallback((country?: CountryT) => {
     dispatch(updateProfile({ country }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
   }, [dispatch]);
 
   return (

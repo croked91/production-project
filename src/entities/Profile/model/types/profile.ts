@@ -16,6 +16,7 @@ export const validateProfileError = {
 export type ValidateProfileErrorT = keyof typeof validateProfileError
 
 export interface IProfile {
+  'id'?: string,
   'first'?: string,
   'lastname'?: string,
   'age'?: number,

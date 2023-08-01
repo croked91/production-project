@@ -20,6 +20,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -97,7 +98,7 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length
           && validateErrors.map(
@@ -123,7 +124,7 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
           onChangeCurrency={onChangeCurrency}
           readOnly={readonly}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 });

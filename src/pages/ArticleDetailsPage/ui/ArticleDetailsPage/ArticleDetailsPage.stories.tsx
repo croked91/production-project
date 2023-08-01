@@ -48,7 +48,7 @@ const article: IArticle = {
       ]
     }
   ]
-};
+} as IArticle;
 
 export const Normal = Template.bind({});
 Normal.args = {};

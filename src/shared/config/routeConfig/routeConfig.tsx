@@ -15,7 +15,7 @@ export enum AppRoutes {
   ARTICLES = 'articles',
   ARTICLE_DETAILS = 'article_details',
   // last
-  NOT_FOUND = 'not-found-page'
+  NOT_FOUND = 'not-found-page',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {

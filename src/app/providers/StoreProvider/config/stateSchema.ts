@@ -3,11 +3,12 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { IArticleDetailsSchema } from 'entities/Article';
-import { IProfileSchema } from 'entities/Profile/model/types/profile';
+import { IProfileSchema } from 'entities/Profile';
 import { IUserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ILoginSchema } from 'features/authByUsername';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 import { NavigateOptions, To } from 'react-router-dom';
 
@@ -20,6 +21,7 @@ export interface StateSchema {
   articleDetails?: IArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
+  articlesPage?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

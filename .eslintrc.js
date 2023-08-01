@@ -8,7 +8,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:i18next/recommended',
     'airbnb',
-    'plugin:storybook/recommended'
+    'plugin:storybook/recommended',
+    'react-app'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -46,13 +47,16 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'implicit-arrow-linebreak': ['error', 'beside'],
+    'react/no-array-index-key': 'off',
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
       ignoreAttribute: ['data-testid', 'to', 'name']
     }],
     'max-len': ['error', {
       code: 120,
-      ignoreComments: true
+      ignoreComments: true,
+      ignoreUrls: true,
+      ignorePattern: '^import|export\\s.+\\sfrom\\s.+;$'
     }],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off'

@@ -2,7 +2,6 @@ import {
   configureStore, ReducersMapObject
 } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User/model/slice/userSclice';
-import { NavigateOptions, To } from 'react-router-dom';
 import { CombinedState, Reducer } from 'redux';
 import { $api } from 'shared/api/api';
 import { ThunkExtraArg } from '..';
@@ -11,8 +10,7 @@ import { StateSchema } from './stateSchema';
 
 export function createReduxStore(
   initailState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void
+  asyncReducers?: ReducersMapObject<StateSchema>
 ) {
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -22,8 +20,7 @@ export function createReduxStore(
   const reducerManager = createReducerManager(rootReducer);
 
   const extraArg: ThunkExtraArg = {
-    api: $api,
-    navigate
+    api: $api
   };
 
   // eslint-disable-next-line max-len

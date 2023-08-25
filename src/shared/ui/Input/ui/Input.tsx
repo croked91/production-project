@@ -1,7 +1,7 @@
 import {
   ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState
 } from 'react';
-import { classNames, Mods } from 'shared/lib/helpers/classNames';
+import { Mods, classNames } from 'shared/lib/helpers/classNames';
 import styles from './Input.module.scss';
 
 type HTMLInputProps = Omit<

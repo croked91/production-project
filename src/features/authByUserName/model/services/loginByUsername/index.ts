@@ -21,7 +21,6 @@ export const loginByUsermname = createAsyncThunk<IUser, ILoginByUsernameProps, I
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
       dispatch(setAuthData(data));
-      if (extra.navigate) extra.navigate('/about');
       return data;
     } catch (error) {
       return rejectWithValue('error');

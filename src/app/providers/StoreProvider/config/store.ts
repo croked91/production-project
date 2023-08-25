@@ -4,6 +4,7 @@ import {
 import { userReducer } from 'entities/User/model/slice/userSclice';
 import { CombinedState, Reducer } from 'redux';
 import { $api } from 'shared/api/api';
+import { uiReducer } from 'shared/lib/helpers/UIUtils';
 import { ThunkExtraArg } from '..';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './stateSchema';
@@ -14,7 +15,8 @@ export function createReduxStore(
 ) {
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
-    user: userReducer
+    user: userReducer,
+    ui: uiReducer
   };
 
   const reducerManager = createReducerManager(rootReducer);

@@ -9,9 +9,11 @@ import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ILoginSchema } from 'features/authByUsername';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { UISchema } from 'shared/lib/helpers/UIUtils';
 
 export interface StateSchema {
   user: IUserSchema,
+  ui : UISchema
 
   // async
   loginForm?: ILoginSchema
